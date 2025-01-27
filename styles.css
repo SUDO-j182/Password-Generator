@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    background-color: cornflowerblue;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container label {
+    font-size: 16px;
+    color: orange;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.checkbox-group input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid gray;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.checkbox-group input[type=checkbox]:checked {
+    background-color: green;
+    border-color: red;
+}
+
+.btn-gen {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: gray;
+    color: black;
+    border-radius: 8px;
+}
+
+.btn-gen:hover {
+    background-color: orange;
+    transition: all 0.3s ease;
+}
+
+.btn-gen:active {
+    transform: translate(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.password-output {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.input-password:focus {
+    transition: all 0.3s ease;
+    border-color: cornflowerblue;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    outline: none;
+    border: 2px solid gray;
+}
+
+.password-controls {
+    margin-bottom: 20px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: gray;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 15px;
+        max-width: 90%;
+    }
+    .btn-gen {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .password-output {
+        font-size: 16px;
+    }
+}
