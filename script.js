@@ -5,6 +5,7 @@ const numbersCheckbox = document.getElementById('numbers');
 const symbolsCheckbox = document.getElementById('symbols');
 const generatebutton = document.getElementById('generate');
 const passwordOutput = document.getElementById('password');
+
 const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
 const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const numberChars = '0123456789';
@@ -12,12 +13,12 @@ const symbolChars = '!@#$%&*()_-[]{}¦;:,.<>?';
 
 function generatePassword() {
     const length = parseInt(lengthInput.value);
-    let charPool='';
+    let charPool = '';
 
     if (uppercaseCheckbox.checked) charPool += uppercaseChars;
     if (lowercaseCheckbox.checked) charPool += lowercaseChars;
     if (numbersCheckbox.checked) charPool += numberChars;
-    if (symbolsCheckbox.checked) charPool +=symbolChars;
+    if (symbolsCheckbox.checked) charPool += symbolChars;
 
     if (charPool === '') {
         alert('Please select at least one character type!');
