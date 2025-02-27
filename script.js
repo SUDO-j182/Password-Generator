@@ -13,6 +13,30 @@ const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Define uppercase charact
 const numberChars = '0123456789'; // Define number characters
 const symbolChars = '!@#$%&*()_-[]{}¦;:,.<>?'; // Define symbol characters
 
+const terminalBody = document.querySelector(".terminal-body");
+const cliContainer = document.createElement("div");
+cliContainer.id = "cli-container";
+cliContainer.innerHTML = `
+    <div id="cli-output"></div>
+    <div id="cli-input-line">
+        <span class="cli-prefix">&gt;</span>
+        <input type="text" id="cli-input" autofocus>
+    </div>
+`;
+terminalBody.appendChild(cliContainer);
+
+const cliOutput = document.getElementById("cli-output");
+const cliInput = document.getElementById("cli-input");
+
+cliInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        const command = sanitizeInput(cliInput.value.trim());
+        executeCommand(command);
+        cliInput.value = "";
+    }
+});
+
 // Toggle `[X]` and `[ ]` on click
 Object.values(checkboxes).forEach(checkbox => {
     checkbox.addEventListener("click", () => {
@@ -22,8 +46,8 @@ Object.values(checkboxes).forEach(checkbox => {
     });
 });
 
-function generatePassword() {
-    const length = parseInt(lengthInput.value); // Get the password length
+function generatePassword(length = parseInt(lengthInput.value)) {
+    const lengthValue = length || parseInt(lengthInput.value); // Get the password length
     let charPool = ''; // Initialize the character pool
 
     if (checkboxes.uppercase.getAttribute("data-checked") === "true") charPool += uppercaseChars; // Add uppercase characters if checked
@@ -32,12 +56,12 @@ function generatePassword() {
     if (checkboxes.symbols.getAttribute("data-checked") === "true") charPool += symbolChars; // Add symbol characters if checked
 
     if (charPool === '') {
-        alert('Please select at least one character type!'); // Alert if no character type is selected
+        alert('⚠ Please select at least one character type!'); // Alert if no character type is selected
         return '';
     }
 
     let password = ''; // Initialize the password
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < lengthValue; i++) {
         const randomIndex = Math.floor(Math.random() * charPool.length); // Get a random index from the character pool
         password += charPool[randomIndex]; // Add the character to the password
     }
@@ -75,3 +99,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
     typeBootText(); // Start the boot sequence
 });
+
+function appendOutput(text) {
+    const outputLine = document.createElement("div"); // Create a new div element for the output line
+    outputLine.innerHTML = text; // Set the inner HTML of the output line
+    cliOutput.appendChild(outputLine); // Append the output line to the CLI output
+    cliOutput.scrollTop = cliOutput.scrollHeight; // Scroll to the bottom of the CLI output
+}
+
+function executeCommand(command) {
+    if (!command) return;
+    appendOutput(`> ${command}`);
+    const parts = command.split(" ");
+    const cmd = parts[0].toLowerCase();
+    const arg = parts[1];
+    switch (cmd) {
+        case "generate":
+            const length = parseInt(arg);
+            if (!isNaN(length) && length >= 4 && length <= 20) {
+                const password = generatePassword(length);
+                appendOutput(`█ Generated Password: ${password}`);
+            } else {
+                appendOutput("⚠ Invalid length. Use: generate <4-20>");
+            }
+            break;
+        case "help":
+            appendOutput("Available commands:");
+            appendOutput("- generate <length>: Generate a password");
+            appendOutput("- clear: Clear the terminal");
+            appendOutput("- help: Show this message");
+            break;
+        case "clear":
+            cliOutput.innerHTML = "";
+            break;
+        default:
+            appendOutput("⚠ Unknown command. Type 'help' for options.");
+    }
+}
+
+function sanitizeInput(input) {
+    const element = document.createElement('div');
+    element.innerText = input;
+    return element.innerHTML;
+}
