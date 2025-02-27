@@ -1,117 +1,106 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #1e1e1e;
+    color: #00ff00;
+    font-family: monospace;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
 }
 
-.container {
-    padding: 20px;
-    max-width: 400px;
-    width: 90%;
-    background-color: cornflowerblue;
-    border-radius: 12px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
-}
-
-.container h1 {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.container label {
-    font-size: 16px;
-    color: orange;
-    margin-bottom: 8px;
-    display: block;
-}
-
-.checkbox-group input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid gray;
-    border-radius: 4px;
-    background-color: white;
-    cursor: pointer;
-}
-
-.checkbox-group input[type="checkbox"]:checked {
-    background-color: green;
-    border-color: red;
-}
-
-.btn-gen {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: gray;
-    color: black;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.btn-gen:hover {
-    background-color: orange;
-}
-
-.btn-gen:active {
-    transform: translate(5px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.password-output {
-    margin-top: 20px;
+.terminal {
+    background-color: #000;
+    border: 2px solid #00ff00;
+    width: 60%;
+    max-width: 600px;
     padding: 10px;
-    font-size: 20px;
-    text-align: center;
 }
 
-.input-password:focus {
-    border-color: cornflowerblue;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-    outline: none;
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.password-controls {
-    margin-bottom: 20px;
+.terminal-header .buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.terminal-header .buttons span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #00ff00;
+}
+
+.terminal-header .title {
+    color: #00ff00;
+    font-size: 14px;
+}
+
+.terminal-body {
+    padding: 10px;
+    border: 1px solid #00ff00;
+}
+
+.password-controls,
+.password-output {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #000;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: monospace;
 }
 
 .checkbox-group {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
-footer {
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.btn-gen {
+    background-color: #000;
+    color: #00ff00;
+    padding: 5px 10px;
+    border: 1px solid #00ff00;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.btn-gen:hover {
+    background-color: #00ff00;
+    color: #000;
+}
+
+.footer-container {
     text-align: center;
-    margin-top: 20px;
-    color: gray;
-    font-size: 14px;
-    width: 100%;
-    padding: 10px 0;
-}
-
-@media (max-width: 500px) {
-    .container {
-        padding: 15px;
-        max-width: 90%;
-    }
-    .btn-gen {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-    .password-output {
-        font-size: 16px;
-    }
+    padding: 5px;
+    background-color: #000;
+    color: #00ff00;
+    border-top: 1px solid #00ff00;
 }
