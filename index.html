@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8"> <!-- Set the character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Set the viewport to ensure proper scaling on mobile devices -->
+    <title>Password Generator</title> <!-- Set the title of the document -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Link to the favicon -->
 </head>
 <body>
-    <div class="terminal">
-        <div class="terminal-header">
-            <div class="buttons">
-                <span class="close"></span>
-                <span class="minimize"></span>
-                <span class="maximize"></span>
+    <div class="terminal"> <!-- Terminal container -->
+        <div class="terminal-header"> <!-- Terminal header -->
+            <div class="buttons"> <!-- Header buttons -->
+                <span class="close"></span> <!-- Close button -->
+                <span class="minimize"></span> <!-- Minimize button -->
+                <span class="maximize"></span> <!-- Maximize button -->
             </div>
-            <div class="title">Secure Password Generator</div>
+            <div class="title">Secure Password Generator</div> <!-- Terminal title -->
         </div>
-        <div class="terminal-body">
-            <div class="password-controls">
-                <label for="length">Password Length:</label>
-                <input type="number" id="length" min="4" max="20" value="12">
+        <div class="terminal-body"> <!-- Terminal body -->
+            <div id="boot-sequence"></div> <!-- Boot-up text goes here -->
 
-                <div class="checkbox-group">
-                    <div>
-                        <input type="checkbox" id="uppercase" checked>
-                        <label for="uppercase">Include Uppercase</label>
+            <!-- Password generator UI (hidden initially) -->
+            <div id="generator-container" class="generator" style="display: none;"> <!-- Password generator container -->
+                <div class="password-controls"> <!-- Password controls -->
+                    <label for="length">Password Length:</label> <!-- Label for password length input -->
+                    <input type="number" id="length" min="4" max="20" value="12"> <!-- Password length input -->
+
+                    <div class="checkbox-group"> <!-- Checkbox group -->
+                        <div>
+                            <span class="ascii-checkbox" id="chk-uppercase" data-checked="true">[X]</span> <!-- ASCII-style checkbox for uppercase -->
+                            <label>Include Uppercase</label> <!-- Label for uppercase checkbox -->
+                        </div>
+                        <div>
+                            <span class="ascii-checkbox" id="chk-lowercase" data-checked="true">[X]</span> <!-- ASCII-style checkbox for lowercase -->
+                            <label>Include Lowercase</label> <!-- Label for lowercase checkbox -->
+                        </div>
+                        <div>
+                            <span class="ascii-checkbox" id="chk-numbers" data-checked="true">[X]</span> <!-- ASCII-style checkbox for numbers -->
+                            <label>Include Numbers</label> <!-- Label for numbers checkbox -->
+                        </div>
+                        <div>
+                            <span class="ascii-checkbox" id="chk-symbols" data-checked="true">[X]</span> <!-- ASCII-style checkbox for symbols -->
+                            <label>Include Symbols</label> <!-- Label for symbols checkbox -->
+                        </div>
                     </div>
-                    <div>
-                        <input type="checkbox" id="lowercase" checked>
-                        <label for="lowercase">Include Lowercase</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="numbers" checked>
-                        <label for="numbers">Include Numbers</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="symbols" checked>
-                        <label for="symbols">Include Symbols</label>
-                    </div>
+                    <button id="generate" class="btn-gen">Generate Your Password</button> <!-- Generate password button -->
                 </div>
-                <button id="generate" class="btn-gen">Generate Your Password</button>
-            </div>
-            <div class="password-output">
-                <label for="password">Generated Password:</label>
-                <input type="text" id="password" class="input-password" placeholder="Password will appear here" readonly aria-live="polite">
+                <div class="password-output"> <!-- Password output -->
+                    <label for="password">Generated Password:</label> <!-- Label for password output -->
+                    <input type="text" id="password" class="input-password" placeholder="Password will appear here" readonly aria-live="polite"> <!-- Password output input -->
+                    <span class="cursor"></span> <!-- Blinking cursor -->
+                </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <footer>
+        <div class="footer-container"> <!-- Footer container -->
+            <h3>Developed by Jai using basic HTML, CSS, and JavaScript, PWA currently under development.</h3> <!-- Footer text -->
+        </div>
+    </footer>
+    <script src="script.js"></script> <!-- Link to the external JavaScript file -->
 </body>
-<footer>
-    <div class="footer-container">
-        <h3>Developed by Jai using basic HTML, CSS, and JavaScript, PWA currently under development.</h3>
-    </div>
-</footer>
 </html>

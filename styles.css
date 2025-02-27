@@ -1,106 +1,171 @@
 body {
-    background-color: #1e1e1e;
-    color: #00ff00;
-    font-family: monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    background-color: #1e1e1e; /* Set the background color of the body */
+    color: #00ff00; /* Set the text color */
+    font-family: monospace; /* Set the font family to monospace */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: flex-start; /* Align items to the top */
+    align-items: flex-start; /* Align items to the left */
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add some padding for spacing */
 }
 
 .terminal {
-    background-color: #000;
-    border: 2px solid #00ff00;
-    width: 60%;
-    max-width: 600px;
-    padding: 10px;
+    background-color: #000; /* Set the background color to black */
+    border: 2px solid #00ff00; /* Add a green border */
+    width: 60%; /* Set the width to 60% of the parent */
+    max-width: 600px; /* Set the maximum width */
+    padding: 10px; /* Add padding inside the terminal */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+    margin-bottom: 10px; /* Add margin at the bottom */
 }
 
 .terminal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center; /* Align items to the center */
+    margin-bottom: 10px; /* Add margin at the bottom */
 }
 
 .terminal-header .buttons {
-    display: flex;
-    gap: 5px;
+    display: flex; /* Use flexbox layout */
+    gap: 5px; /* Add space between buttons */
 }
 
 .terminal-header .buttons span {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #00ff00;
+    display: inline-block; /* Display as inline-block */
+    width: 12px; /* Set the width */
+    height: 12px; /* Set the height */
+    border-radius: 50%; /* Make the buttons circular */
+    background-color: #00ff00; /* Set the background color to green */
 }
 
 .terminal-header .title {
-    color: #00ff00;
-    font-size: 14px;
+    color: #00ff00; /* Set the text color to green */
+    font-size: 14px; /* Set the font size */
 }
 
 .terminal-body {
-    padding: 10px;
-    border: 1px solid #00ff00;
+    padding: 10px; /* Add padding inside the terminal body */
+    border: 1px solid #00ff00; /* Add a green border */
 }
 
 .password-controls,
 .password-output {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Add margin at the bottom */
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
+    display: block; /* Display as block */
+    margin-bottom: 5px; /* Add margin at the bottom */
 }
 
 input[type="number"],
 input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 5px;
-    background-color: #000;
-    border: 1px solid #00ff00;
-    color: #00ff00;
-    font-family: monospace;
+    width: 100%; /* Set the width to 100% of the parent */
+    padding: 5px; /* Add padding inside the input */
+    margin-bottom: 5px; /* Add margin at the bottom */
+    background-color: #000; /* Set the background color to black */
+    border: 1px solid #00ff00; /* Add a green border */
+    color: #00ff00; /* Set the text color to green */
+    font-family: monospace; /* Set the font family to monospace */
 }
 
 .checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+    display: flex; /* Use flexbox layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 5px; /* Add space between items */
 }
 
 .checkbox-group div {
-    display: flex;
-    align-items: center;
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Align items to the center */
 }
 
 .checkbox-group input[type="checkbox"] {
-    margin-right: 5px;
+    margin-right: 5px; /* Add margin to the right */
+}
+
+.ascii-checkbox {
+    font-size: 16px; /* Set the font size */
+    cursor: pointer; /* Change the cursor to pointer */
+    user-select: none; /* Prevent text selection */
+    margin-right: 5px; /* Add margin to the right */
+    color: #00ff00; /* Set the text color to green */
+}
+
+.ascii-checkbox:hover {
+    text-shadow: 0 0 5px #00ff00; /* Add a green text shadow on hover */
 }
 
 .btn-gen {
-    background-color: #000;
-    color: #00ff00;
-    padding: 5px 10px;
-    border: 1px solid #00ff00;
-    cursor: pointer;
-    font-family: monospace;
+    background-color: #000; /* Set the background color to black */
+    color: #00ff00; /* Set the text color to green */
+    padding: 5px 10px; /* Add padding inside the button */
+    border: 1px solid #00ff00; /* Add a green border */
+    cursor: pointer; /* Change the cursor to pointer */
+    font-family: monospace; /* Set the font family to monospace */
 }
 
 .btn-gen:hover {
-    background-color: #00ff00;
-    color: #000;
+    background-color: #00ff00; /* Change the background color on hover */
+    color: #000; /* Change the text color on hover */
 }
 
 .footer-container {
-    text-align: center;
-    padding: 5px;
-    background-color: #000;
-    color: #00ff00;
-    border-top: 1px solid #00ff00;
+    text-align: center; /* Center-align the text */
+    padding: 5px; /* Add padding inside the footer */
+    background-color: #000; /* Set the background color to black */
+    color: #00ff00; /* Set the text color to green */
+    border-top: 1px solid #00ff00; /* Add a green border at the top */
+    width: 60%; /* Set the width to 60% of the parent */
+    max-width: 600px; /* Set the maximum width */
+}
+
+.terminal-body {
+    position: relative; /* Set the position to relative */
+    background-color: black; /* Set the background color to black */
+    color: #00ff00; /* Set the text color to green */
+    font-family: monospace; /* Set the font family to monospace */
+    padding: 10px; /* Add padding inside the terminal body */
+    border: 1px solid #00ff00; /* Add a green border */
+    min-height: 200px; /* Set the minimum height */
+    overflow: hidden; /* Hide overflow content */
+}
+
+/* Scanline effect only for password generator */
+#generator-container {
+    position: relative; /* Set the position to relative */
+    z-index: 1; /* Set the z-index */
+}
+
+#generator-container::after {
+    content: ""; /* Add an empty content */
+    position: absolute; /* Set the position to absolute */
+    top: 0; /* Set the top position */
+    left: 0; /* Set the left position */
+    width: 100%; /* Set the width to 100% */
+    height: 100%; /* Set the height to 100% */
+    background: repeating-linear-gradient(
+        rgba(0, 255, 0, 0.2) 0px, /* Set the gradient color and position */
+        rgba(0, 255, 0, 0.1) 2px, /* Set the gradient color and position */
+        transparent 4px /* Set the gradient color and position */
+    );
+    opacity: 0.5; /* Set the opacity */
+    pointer-events: none; /* Disable pointer events */
+    z-index: 2; /* Set the z-index */
+}
+
+.cursor {
+    display: inline-block; /* Display as inline-block */
+    width: 8px; /* Set the width */
+    height: 12px; /* Set the height */
+    background-color: #00ff00; /* Set the background color to green */
+    margin-left: 2px; /* Add margin to the left */
+    animation: blink 1s steps(2) infinite; /* Add a blinking animation */
+}
+
+@keyframes blink {
+    50% { opacity: 0; } /* Set the opacity to 0 at 50% of the animation */
 }
