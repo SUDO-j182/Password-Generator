@@ -9,6 +9,7 @@ body {
     height: 100vh; /* Set the height to 100% of the viewport height */
     margin: 0; /* Remove default margin */
     padding: 20px; /* Add some padding for spacing */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
 .terminal {
@@ -19,6 +20,9 @@ body {
     padding: 10px; /* Add padding inside the terminal */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
     margin-bottom: 10px; /* Add margin at the bottom */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Add a green shadow */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
 .terminal-header {
@@ -26,6 +30,8 @@ body {
     justify-content: space-between; /* Distribute space between items */
     align-items: center; /* Align items to the center */
     margin-bottom: 10px; /* Add margin at the bottom */
+    border-bottom: 1px solid #00ff00; /* Add a green border at the bottom */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
 .terminal-header .buttons {
@@ -49,6 +55,15 @@ body {
 .terminal-body {
     padding: 10px; /* Add padding inside the terminal body */
     border: 1px solid #00ff00; /* Add a green border */
+    position: relative; /* Set the position to relative */
+    background-color: black; /* Set the background color to black */
+    color: #00ff00; /* Set the text color to green */
+    font-family: monospace; /* Set the font family to monospace */
+    min-height: 200px; /* Set the minimum height */
+    overflow: hidden; /* Hide overflow content */
+    border-top: 1px solid #00ff00; /* Add a green border at the top */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
+    animation: flicker 0.1s infinite; /* Add a flickering effect */
 }
 
 .password-controls,
@@ -93,6 +108,7 @@ input[type="text"] {
     user-select: none; /* Prevent text selection */
     margin-right: 5px; /* Add margin to the right */
     color: #00ff00; /* Set the text color to green */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
 .ascii-checkbox:hover {
@@ -106,6 +122,7 @@ input[type="text"] {
     border: 1px solid #00ff00; /* Add a green border */
     cursor: pointer; /* Change the cursor to pointer */
     font-family: monospace; /* Set the font family to monospace */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
 .btn-gen:hover {
@@ -121,17 +138,7 @@ input[type="text"] {
     border-top: 1px solid #00ff00; /* Add a green border at the top */
     width: 60%; /* Set the width to 60% of the parent */
     max-width: 600px; /* Set the maximum width */
-}
-
-.terminal-body {
-    position: relative; /* Set the position to relative */
-    background-color: black; /* Set the background color to black */
-    color: #00ff00; /* Set the text color to green */
-    font-family: monospace; /* Set the font family to monospace */
-    padding: 10px; /* Add padding inside the terminal body */
-    border: 1px solid #00ff00; /* Add a green border */
-    min-height: 200px; /* Set the minimum height */
-    overflow: hidden; /* Hide overflow content */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
 /* Scanline effect only for password generator */
@@ -163,7 +170,7 @@ input[type="text"] {
     height: 12px; /* Set the height */
     background-color: #00ff00; /* Set the background color to green */
     margin-left: 2px; /* Add margin to the left */
-    animation: blink 1s steps(2) infinite; /* Add a blinking animation */
+    animation: blink 0.5s steps(2) infinite; /* Adjust the blinking speed */
 }
 
 @keyframes blink {
@@ -194,6 +201,7 @@ input[type="text"] {
     border: 1px solid #00ff00; /* Add a green border */
     opacity: 0; /* Set the initial opacity to 0 */
     transition: opacity 0.3s ease-in-out; /* Add a transition for the opacity */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
 #copy-message.show {
@@ -204,4 +212,10 @@ input[type="text"] {
     color: #00ff00;
     font-family: monospace;
     margin-top: 5px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.9; }
 }
