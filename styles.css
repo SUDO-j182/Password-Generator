@@ -1,17 +1,19 @@
+/* Set the body styles */
 body {
     background-color: #1e1e1e; /* Set the background color of the body */
     color: #00ff00; /* Set the text color */
     font-family: monospace; /* Set the font family to monospace */
     display: flex; /* Use flexbox layout */
-    flex-direction: column; /* Arrange items in a column */
-    justify-content: flex-start; /* Align items to the top */
-    align-items: flex-start; /* Align items to the left */
+    flex-direction: row; /* Arrange items in a row */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: flex-start; /* Align items to the top */
     height: 100vh; /* Set the height to 100% of the viewport height */
     margin: 0; /* Remove default margin */
     padding: 20px; /* Add some padding for spacing */
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
+/* Set the terminal styles */
 .terminal {
     background-color: #000; /* Set the background color to black */
     border: 2px solid #00ff00; /* Add a green border */
@@ -19,12 +21,13 @@ body {
     max-width: 600px; /* Set the maximum width */
     padding: 10px; /* Add padding inside the terminal */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
-    margin-bottom: 10px; /* Add margin at the bottom */
+    margin-right: 20px; /* Add margin to the right */
     border-radius: 5px; /* Add rounded corners */
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Add a green shadow */
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
+/* Set the terminal header styles */
 .terminal-header {
     display: flex; /* Use flexbox layout */
     justify-content: space-between; /* Distribute space between items */
@@ -34,11 +37,13 @@ body {
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
+/* Set the terminal header buttons styles */
 .terminal-header .buttons {
     display: flex; /* Use flexbox layout */
     gap: 5px; /* Add space between buttons */
 }
 
+/* Set the terminal header button styles */
 .terminal-header .buttons span {
     display: inline-block; /* Display as inline-block */
     width: 12px; /* Set the width */
@@ -47,11 +52,13 @@ body {
     background-color: #00ff00; /* Set the background color to green */
 }
 
+/* Set the terminal header title styles */
 .terminal-header .title {
     color: #00ff00; /* Set the text color to green */
     font-size: 14px; /* Set the font size */
 }
 
+/* Set the terminal body styles */
 .terminal-body {
     padding: 10px; /* Add padding inside the terminal body */
     border: 1px solid #00ff00; /* Add a green border */
@@ -66,16 +73,19 @@ body {
     animation: flicker 0.1s infinite; /* Add a flickering effect */
 }
 
+/* Set the password controls and output styles */
 .password-controls,
 .password-output {
     margin-bottom: 10px; /* Add margin at the bottom */
 }
 
+/* Set the label styles */
 label {
     display: block; /* Display as block */
     margin-bottom: 5px; /* Add margin at the bottom */
 }
 
+/* Set the input styles */
 input[type="number"],
 input[type="text"] {
     width: 100%; /* Set the width to 100% of the parent */
@@ -87,21 +97,25 @@ input[type="text"] {
     font-family: monospace; /* Set the font family to monospace */
 }
 
+/* Set the checkbox group styles */
 .checkbox-group {
     display: flex; /* Use flexbox layout */
     flex-wrap: wrap; /* Allow items to wrap */
     gap: 5px; /* Add space between items */
 }
 
+/* Set the checkbox group div styles */
 .checkbox-group div {
     display: flex; /* Use flexbox layout */
     align-items: center; /* Align items to the center */
 }
 
+/* Set the checkbox input styles */
 .checkbox-group input[type="checkbox"] {
     margin-right: 5px; /* Add margin to the right */
 }
 
+/* Set the ASCII checkbox styles */
 .ascii-checkbox {
     font-size: 16px; /* Set the font size */
     cursor: pointer; /* Change the cursor to pointer */
@@ -111,10 +125,12 @@ input[type="text"] {
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
+/* Set the ASCII checkbox hover styles */
 .ascii-checkbox:hover {
     text-shadow: 0 0 5px #00ff00; /* Add a green text shadow on hover */
 }
 
+/* Set the button styles */
 .btn-gen {
     background-color: #000; /* Set the background color to black */
     color: #00ff00; /* Set the text color to green */
@@ -125,11 +141,13 @@ input[type="text"] {
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
+/* Set the button hover styles */
 .btn-gen:hover {
     background-color: #00ff00; /* Change the background color on hover */
     color: #000; /* Change the text color on hover */
 }
 
+/* Set the footer container styles */
 .footer-container {
     text-align: center; /* Center-align the text */
     padding: 5px; /* Add padding inside the footer */
@@ -141,12 +159,13 @@ input[type="text"] {
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
-/* Scanline effect only for password generator */
+/* Set the scanline effect for the password generator */
 #generator-container {
     position: relative; /* Set the position to relative */
     z-index: 1; /* Set the z-index */
 }
 
+/* Set the scanline effect styles */
 #generator-container::after {
     content: ""; /* Add an empty content */
     position: absolute; /* Set the position to absolute */
@@ -164,6 +183,7 @@ input[type="text"] {
     z-index: 2; /* Set the z-index */
 }
 
+/* Set the cursor styles */
 .cursor {
     display: inline-block; /* Display as inline-block */
     width: 8px; /* Set the width */
@@ -173,10 +193,12 @@ input[type="text"] {
     animation: blink 0.5s steps(2) infinite; /* Adjust the blinking speed */
 }
 
+/* Set the blink animation */
 @keyframes blink {
     50% { opacity: 0; } /* Set the opacity to 0 at 50% of the animation */
 }
 
+/* Set the preset button styles */
 .preset-btn {
     background-color: black;
     color: #00ff00;
@@ -187,11 +209,13 @@ input[type="text"] {
     margin: 5px;
 }
 
+/* Set the preset button hover styles */
 .preset-btn:hover {
     background-color: #00ff00;
     color: black;
 }
 
+/* Set the copy message styles */
 #copy-message {
     position: absolute; /* Position the copy message absolutely */
     background: black; /* Set the background color to black */
@@ -204,10 +228,12 @@ input[type="text"] {
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
+/* Set the copy message show styles */
 #copy-message.show {
     opacity: 1; /* Set the opacity to 1 when the show class is added */
 }
 
+/* Set the strength indicator styles */
 #strength-indicator {
     color: #00ff00;
     font-family: monospace;
@@ -215,7 +241,174 @@ input[type="text"] {
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add a green text shadow */
 }
 
+/* Set the flicker animation */
 @keyframes flicker {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.9; }
+}
+
+/* Set the info section styles */
+#info-section {
+    margin-top: 20px;
+    padding: 10px;
+    color: #00ff00;
+    font-family: monospace;
+    background-color: black;
+    border: 1px solid #00ff00;
+    max-width: 400px;
+    margin-left: 20px; /* Add margin to the left */
+}
+
+/* Set the terminal frame ul styles */
+.terminal-frame ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Set the terminal frame ul li before styles */
+.terminal-frame ul li::before {
+    content: "• ";
+    color: #00ff00;
+}
+
+/* Set the body styles */
+body {
+    background-color: #000;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Set the scanline effect animation */
+@keyframes scanlines {
+    from { background-position: 0 0; }
+    to { background-position: 0 4px; }
+}
+
+/* Set the scanline effect styles */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        rgba(0, 255, 0, 0.1) 0px,
+        rgba(0, 255, 0, 0.05) 2px,
+        transparent 4px
+    );
+    animation: scanlines 1s linear infinite;
+    z-index: 999;
+}
+
+/* Set the glow effect animation */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #00ff00; }
+    50% { text-shadow: 0 0 10px #00ff00; }
+    100% { text-shadow: 0 0 5px #00ff00; }
+}
+
+/* Set the glow effect styles */
+.glow {
+    animation: glow 2s infinite alternate;
+}
+
+/* Set the CRT flicker effect animation */
+@keyframes crt-flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.98; }
+    100% { opacity: 1; }
+}
+
+/* Set the CRT flicker effect styles */
+.crt-flicker {
+    animation: crt-flicker 0.1s infinite alternate;
+}
+
+/* Add styles for the draggable battle terminal */
+#battle-terminal {
+    position: absolute; /* Set the position to absolute */
+    top: 50px; /* Initial top position */
+    left: 50px; /* Initial left position */
+    overflow: hidden; /* Hide overflow content */
+    background-color: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    font-family: monospace;
+    padding: 10px;
+    cursor: move; /* Change cursor to move */
+    width: 300px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height */
+}
+
+#battle-log {
+    height: 100%; /* Set the height to 100% of the parent */
+    overflow-y: auto; /* Add vertical scroll */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Custom scrollbar styles for ASCII look */
+#battle-log::-webkit-scrollbar {
+    width: 10px; /* Set the width of the scrollbar */
+}
+
+#battle-log::-webkit-scrollbar-track {
+    background: black; /* Set the background color of the track */
+    border: 1px solid #00ff00; /* Add a green border */
+}
+
+#battle-log::-webkit-scrollbar-thumb {
+    background: #00ff00; /* Set the background color of the thumb */
+    border: 1px solid black; /* Add a black border */
+    box-shadow: inset 0 0 0 1px black; /* Add an inset shadow for ASCII look */
+}
+
+#battle-log::-webkit-scrollbar-thumb:hover {
+    background: #00cc00; /* Change the background color on hover */
+}
+
+/* Firefox scrollbar styles */
+#battle-log {
+    scrollbar-width: thin; /* Set the width of the scrollbar */
+    scrollbar-color: #00ff00 black; /* Set the colors of the scrollbar */
+}
+
+/* Internet Explorer and Edge scrollbar styles */
+#battle-log {
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* Use auto-hiding scrollbar */
+}
+
+#battle-log::-ms-scrollbar {
+    width: 10px; /* Set the width of the scrollbar */
+}
+
+#battle-log::-ms-scrollbar-track {
+    background: black; /* Set the background color of the track */
+    border: 1px solid #00ff00; /* Add a green border */
+}
+
+#battle-log::-ms-scrollbar-thumb {
+    background: #00ff00; /* Set the background color of the thumb */
+    border: 1px solid black; /* Add a black border */
+    box-shadow: inset 0 0 0 1px black; /* Add an inset shadow for ASCII look */
+}
+
+#battle-log::-ms-scrollbar-thumb:hover {
+    background: #00cc00; /* Change the background color on hover */
+}
+
+/* Styles for ASCII graphical effects */
+#attack-bar,
+#countermeasures-animation,
+#firewall-effect,
+#alert-symbols {
+    width: 50%; /* Set the width to 100% */
+    height: 30px; /* Set the height */
+    background: black; /* Set the background color to black */
+    color: #00ff00; /* Set the text color to green */
+    border: 1px solid #00ff00; /* Add a green border */
+    margin-top: 10px; /* Add margin at the top */
+    white-space: nowrap; /* Prevent text wrapping */
 }
