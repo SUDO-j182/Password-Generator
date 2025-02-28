@@ -7,6 +7,8 @@ const checkboxes = {
 };
 const generateButton = document.getElementById('generate'); // Get the generate button element
 const passwordOutput = document.getElementById('password'); // Get the password output element
+const copyButton = document.getElementById('copy-password'); // Get the copy password button element
+const copyMessage = document.getElementById('copy-message'); // Get the copy message element
 
 const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz'; // Define lowercase characters
 const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Define uppercase characters
@@ -37,6 +39,22 @@ cliInput.addEventListener("keydown", function (event) {
     }
 });
 
+function animatePasswordReveal(password, outputElement) {
+    outputElement.value = "";
+    let index = 0;
+    let cursor = "█";
+    function typeNextChar() {
+        if (index < password.length) {
+            outputElement.value = password.substring(0, index + 1) + cursor;
+            index++;
+            setTimeout(typeNextChar, 50);
+        } else {
+            outputElement.value = password;
+        }
+    }
+    typeNextChar();
+}
+
 // Toggle `[X]` and `[ ]` on click
 Object.values(checkboxes).forEach(checkbox => {
     checkbox.addEventListener("click", () => {
@@ -65,13 +83,24 @@ function generatePassword(length = parseInt(lengthInput.value)) {
         const randomIndex = Math.floor(Math.random() * charPool.length); // Get a random index from the character pool
         password += charPool[randomIndex]; // Add the character to the password
     }
-
+    animatePasswordReveal(password, passwordOutput);
     return password; // Return the generated password
 }
 
 generateButton.addEventListener('click', () => {
     const newPassword = generatePassword(); // Generate a new password
     passwordOutput.value = newPassword; // Set the password output value
+    animatePasswordReveal(newPassword, passwordOutput);
+    document.getElementById("strength-indicator").textContent = "Strength: " + calculateStrength(newPassword);
+});
+
+copyButton.addEventListener('click', () => {
+    passwordOutput.select(); // Select the password output text
+    document.execCommand('copy'); // Copy the selected text to the clipboard
+    copyMessage.classList.add('show'); // Show the copy message
+    setTimeout(() => {
+        copyMessage.classList.remove('show'); // Hide the copy message after 2 seconds
+    }, 2000);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -100,6 +129,61 @@ document.addEventListener("DOMContentLoaded", function () {
     typeBootText(); // Start the boot sequence
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const presetLengths = [8, 12, 16, 32];
+    const presetContainer = document.createElement("div");
+    presetContainer.id = "preset-buttons";
+    presetContainer.innerHTML = "<p>Quick Lengths:</p>";
+
+    presetLengths.forEach(length => {
+        const button = document.createElement("button");
+        button.classList.add("preset-btn");
+        button.textContent = length;
+        button.addEventListener("click", () => {
+            lengthInput.value = length;
+            generateButton.click();
+        });
+        presetContainer.appendChild(button);
+    });
+    document.querySelector(".password-controls").appendChild(presetContainer);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const copyMessage = document.createElement("div");
+    copyMessage.id = "copy-message";
+    copyMessage.textContent = "Copied!";
+    document.querySelector(".password-output").appendChild(copyMessage);
+});
+
+passwordOutput.addEventListener("click", function () {
+    if (passwordOutput.value) {
+        navigator.clipboard.writeText(passwordOutput.value).then(() => {
+            const copyMessage = document.getElementById("copy-message");
+            copyMessage.classList.add("show");
+            setTimeout(() => copyMessage.classList.remove("show"), 1500);
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const strengthIndicator = document.createElement("div");
+    strengthIndicator.id = "strength-indicator";
+    document.querySelector(".password-output").appendChild(strengthIndicator);
+});
+
+function calculateStrength(password) {
+    let score = 0;
+    if (password.length >= 8) score++;
+    if (password.length >= 12) score++;
+    if (/[A-Z]/.test(password)) score++;
+    if (/[a-z]/.test(password)) score++;
+    if (/[0-9]/.test(password)) score++;
+    if (/[^A-Za-z0-9]/.test(password)) score++;
+
+    const strengthLevels = ["░ ░ ░", "░ ░ ░", "█ ░ ░", "█ █ ░", "█ █ █"];
+    return strengthLevels[Math.min(score, strengthLevels.length - 1)];
+}
+
 function appendOutput(text) {
     const outputLine = document.createElement("div"); // Create a new div element for the output line
     outputLine.innerHTML = text; // Set the inner HTML of the output line
@@ -118,7 +202,7 @@ function executeCommand(command) {
             const length = parseInt(arg);
             if (!isNaN(length) && length >= 4 && length <= 20) {
                 const password = generatePassword(length);
-                appendOutput(`█ Generated Password: ${password}`);
+                animatePasswordReveal(password, cliOutput);
             } else {
                 appendOutput("⚠ Invalid length. Use: generate <4-20>");
             }

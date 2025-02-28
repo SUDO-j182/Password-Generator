@@ -169,3 +169,39 @@ input[type="text"] {
 @keyframes blink {
     50% { opacity: 0; } /* Set the opacity to 0 at 50% of the animation */
 }
+
+.preset-btn {
+    background-color: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: monospace;
+    margin: 5px;
+}
+
+.preset-btn:hover {
+    background-color: #00ff00;
+    color: black;
+}
+
+#copy-message {
+    position: absolute; /* Position the copy message absolutely */
+    background: black; /* Set the background color to black */
+    color: #00ff00; /* Set the text color to green */
+    font-family: monospace; /* Set the font family to monospace */
+    padding: 5px 10px; /* Add padding inside the copy message */
+    border: 1px solid #00ff00; /* Add a green border */
+    opacity: 0; /* Set the initial opacity to 0 */
+    transition: opacity 0.3s ease-in-out; /* Add a transition for the opacity */
+}
+
+#copy-message.show {
+    opacity: 1; /* Set the opacity to 1 when the show class is added */
+}
+
+#strength-indicator {
+    color: #00ff00;
+    font-family: monospace;
+    margin-top: 5px;
+}
