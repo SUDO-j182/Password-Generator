@@ -4,8 +4,19 @@
     <meta charset="UTF-8"> <!-- Set the character encoding to UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Set the viewport to ensure proper scaling on mobile devices -->
     <title>Password Generator</title> <!-- Set the title of the document -->
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <link id="desktop-styles" rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <link id="mobile-styles" rel="stylesheet" href="styles-mobile.css" disabled> <!-- Link to the mobile CSS file -->
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Link to the favicon -->
+    <script>
+        function detectDevice() {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                document.getElementById('desktop-styles').disabled = true;
+                document.getElementById('mobile-styles').disabled = false;
+            }
+        }
+        window.onload = detectDevice;
+    </script>
 </head>
 <body>
     <div class="terminal"> <!-- Terminal container -->
