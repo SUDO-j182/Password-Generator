@@ -29,3 +29,7 @@ This was the first time I started to understand how JavaScript could control the
 - Refactor into modular functions for easier maintenance
 - Add error handling and validation for edge cases
 - Convert to a Progressive Web App with offline access
+
+## Live Demo
+
+Try it here: [Password Generator (GitHub Pages)](https://sudo-j182.github.io/password-generator/)
